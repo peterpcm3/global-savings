@@ -1,0 +1,10 @@
+fos_rest:
+  body_listener:
+    enabled: true
+    throw_exception_on_unsupported_content_type: true
+    decoders:
+      json: fos_rest.decoder.json
+  format_listener:
+    rules:
+      - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+      - { path: '^/', fallback_format: json}
